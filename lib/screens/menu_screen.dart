@@ -16,12 +16,11 @@ class MenuScreen extends StatefulWidget {
 
 class _MenuScreenState extends State<MenuScreen> {
   bool showMemberBar = true;
-  bool showMapView = true; // This state will toggle between the map and list view
+  bool showMapView = true;
   late GoogleMapController mapController;
-
   final Completer<GoogleMapController> _controller = Completer();
   final Set<Marker> _markers = {};
-
+  bool _isMapControllerCompleted = false; // Add this flag
   @override
   void initState() {
     super.initState();
@@ -49,9 +48,13 @@ class _MenuScreenState extends State<MenuScreen> {
   }
 
   // On map created
-  void _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
+    void _onMapCreated(GoogleMapController controller) {
+    if (!_isMapControllerCompleted) {
+      _controller.complete(controller);
+      _isMapControllerCompleted = true; // Mark it as completed
+    }
   }
+
 
   // Toggle between map view and list view
   void _toggleView() {
@@ -91,54 +94,6 @@ class _MenuScreenState extends State<MenuScreen> {
               },
             ),
             ListTile(
-              title: const Text('Activity'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Timesheet'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Report'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Job site'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Team'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Time off'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Schedules'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Request to join orgainsation'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
               title: const Text('Logout'),
               onTap: () {
                 Navigator.pop(context);
@@ -157,10 +112,10 @@ class _MenuScreenState extends State<MenuScreen> {
                 children: [
                   const Icon(Icons.group, color: Colors.black),
                   const SizedBox(width: 10),
-                  const Text('Members', style: TextStyle(fontSize: 18, color: Colors.black)),
+                  const Text('All Members', style: TextStyle(fontSize: 18, color: Colors.black)),
                   const Spacer(),
-                  IconButton(
-                    icon: const Icon(Icons.arrow_forward),
+                  TextButton(
+                    child: Text("Change"),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -183,7 +138,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     markers: _markers,
                   )
                 : Container(
-  color: Colors.grey[300], // Background color
+  color: Color.fromARGB(255, 255, 255, 255), // Background color
   child: ListView.builder(
     itemCount: persons.length,
     itemBuilder: (context, index) {
@@ -211,9 +166,8 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
           // Toggle button at the bottom
           Container(
-            color: Colors.grey[200],
             padding: const EdgeInsets.all(10),
-            child: ElevatedButton(
+            child: TextButton(
               onPressed: _toggleView,
               child: Text(showMapView ? 'Show List View' : 'Show Map View'),
             ),
