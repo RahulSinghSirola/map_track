@@ -4,54 +4,56 @@ import '../models/person.dart';
 // Constants for persons and their locations
 final List<Person> persons = [
   Person(
-    name: 'Mohit Chauhan',
+    name: 'Jhonson',
     imagePath: 'assets/person1.png',
     locations: [
-      LatLng(28.948457, 79.905233),
-      LatLng(28.939879, 79.899726),
-      LatLng(28.931441, 79.932740),
-      LatLng(28.972021, 79.927961),
+      LatLng(-27.487208,153.039854),
+      LatLng(-27.47,153.02),
+      LatLng(-27.484,153.034),
+     
       // Add more LatLng points as needed
     ],
-    time: ["in: 7:00 PM out: 10:00 PM", "in: 5:00 PM out: 7:00 PM", "in: 3:00 PM out: 7:00 PM", "in: 10:00 AM out: 3:00 PM",]
+    time: ["in: 7:00 PM out: 10:00 PM", "in: 5:00 PM out: 7:00 PM", "in: 3:00 PM out: 7:00 PM",]
   ),
   Person(
-    name: 'Karan Aujla',
+    name: 'Shubham',
     imagePath: 'assets/person2.png',
     locations: [
-      LatLng(28.946411, 79.920734),
-      LatLng(28.932961, 79.926703),
-      LatLng(28.955327, 79.933427),
+      LatLng(-27.492447,153.034962),
+      LatLng(-27.48,153.02),
+      LatLng(-27.49244,153.0349),
+
       // Add more LatLng points as needed
     ],
     time: ["in: 5:00 PM out: 7:00 PM", "in: 5:00 PM out: 3:00 PM", "in: 9:00 AM out: 3:00 PM"]
   ),
   Person(
-    name: 'Honey Singh',
+    name: 'Rik',
     imagePath: 'assets/person3.png',
     locations: [
-      LatLng(28.945799, 79.913506),
+      LatLng(-27.484436,153.031580),
       // Add more LatLng points as needed
     ],
     time: ["in: 10:00 AM"]
   ),
   Person(
-    name: 'Badshah',
+    name: 'Bob',
     imagePath: 'assets/person4.png',
     locations: [
-      LatLng(28.955221, 79.908820),
-      LatLng(29.001264, 79.927685),
+      LatLng(-27.474839,153.035954),
+      LatLng(-27.45,153.0345),
       // Add more LatLng points as needed
     ],
     time: ["in: 7:00 PM out: 10:00 PM", "in: 5:00 PM out: 7:00 PM"]
   ),
   Person(
-    name: 'Rafter',
+    name: 'David',
     imagePath: 'assets/person5.png',
     locations: [
-      LatLng(28.932485, 79.928640),
-      LatLng(28.932971, 79.926711),
-      LatLng(28.931881, 79.926670),
+      LatLng(-27.479125,153.047337),
+      LatLng(-27.467,153.03),
+      LatLng(-27.48,153.0435),
+     
       // Add more LatLng points as needed
     ],
     time: ["in: 6:00 PM out: 7:00 PM", "in: 2:00 PM out: 6:00 PM", "in: 9:00 AM out: 2:00 PM"]
